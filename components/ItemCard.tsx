@@ -27,14 +27,16 @@ export default function ItemCard({
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           onClick={onClick}
-          className={`mb-2 cursor-pointer rounded-lg border border-slate-200 bg-white p-3 shadow-sm transition-shadow hover:shadow-md ${
-            snapshot.isDragging ? 'rotate-1 shadow-lg ring-2 ring-brand-300' : ''
+          className={`mb-2 cursor-pointer rounded-lg border border-slate-200 bg-white p-3 shadow-sm transition-all hover:shadow-md dark:border-slate-700 dark:bg-slate-900 ${
+            snapshot.isDragging ? 'rotate-1 shadow-lg ring-2 ring-brand-300 dark:ring-brand-500' : ''
           }`}
         >
-          <p className="text-sm font-medium text-slate-800 break-words">{item.title}</p>
+          <p className="text-sm font-medium text-slate-800 break-words dark:text-slate-100">{item.title}</p>
 
           {item.description && (
-            <p className="mt-1 line-clamp-2 text-xs text-slate-500 break-words">{item.description}</p>
+            <p className="mt-1 line-clamp-2 text-xs text-slate-500 break-words dark:text-slate-400">
+              {item.description}
+            </p>
           )}
 
           <div className="mt-3 flex items-center justify-between gap-2">
@@ -43,7 +45,9 @@ export default function ItemCard({
               {item.dueDate && (
                 <span
                   className={`text-[11px] ${
-                    isOverdue(item.dueDate) ? 'font-medium text-red-600' : 'text-slate-400'
+                    isOverdue(item.dueDate)
+                      ? 'font-medium text-red-600 dark:text-red-400'
+                      : 'text-slate-400 dark:text-slate-500'
                   }`}
                 >
                   {new Date(item.dueDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}

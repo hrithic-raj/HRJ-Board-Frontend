@@ -86,12 +86,15 @@ export default function ItemModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 animate-fade-in">
-      <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-xl bg-white p-6 shadow-xl animate-slide-up">
+      <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-xl bg-white p-6 shadow-xl animate-slide-up dark:bg-slate-900">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-slate-900">
+          <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
             {mode === 'create' ? 'New item' : 'Edit item'}
           </h2>
-          <button onClick={onClose} className="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600">
+          <button
+            onClick={onClose}
+            className="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300"
+          >
             ✕
           </button>
         </div>
@@ -158,7 +161,9 @@ export default function ItemModal({
                 type="button"
                 onClick={() => setAssignedTo('')}
                 className={`rounded-full border px-3 py-1 text-xs font-medium ${
-                  !assignedTo ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-slate-200 text-slate-500'
+                  !assignedTo
+                    ? 'border-brand-500 bg-brand-50 text-brand-700 dark:bg-brand-500/15 dark:text-brand-400'
+                    : 'border-slate-200 text-slate-500 dark:border-slate-700 dark:text-slate-400'
                 }`}
               >
                 Unassigned
@@ -172,7 +177,9 @@ export default function ItemModal({
                     key={uid}
                     onClick={() => setAssignedTo(uid)}
                     className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium ${
-                      selected ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-slate-200 text-slate-600'
+                      selected
+                        ? 'border-brand-500 bg-brand-50 text-brand-700 dark:bg-brand-500/15 dark:text-brand-400'
+                        : 'border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-300'
                     }`}
                   >
                     <Avatar user={m.user} size="sm" />
@@ -188,7 +195,7 @@ export default function ItemModal({
               <button
                 type="button"
                 onClick={() => setConfirmDelete(true)}
-                className="text-sm font-medium text-red-600 hover:text-red-700"
+                className="text-sm font-medium text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300"
               >
                 Delete item
               </button>

@@ -5,7 +5,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project._id}`}
-      className="card group flex flex-col p-5 transition-shadow hover:shadow-md"
+      className="card group flex flex-col p-5 transition-all hover:-translate-y-0.5 hover:shadow-md"
     >
       <div className="flex items-start justify-between gap-3">
         <div
@@ -15,20 +15,20 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.name.charAt(0).toUpperCase()}
         </div>
         {project.myRole === 'owner' && (
-          <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-medium text-amber-700">
+          <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-medium text-amber-700 dark:bg-amber-500/15 dark:text-amber-400">
             Owner
           </span>
         )}
       </div>
 
-      <h3 className="mt-3 truncate text-base font-semibold text-slate-900 group-hover:text-brand-700">
+      <h3 className="mt-3 truncate text-base font-semibold text-slate-900 group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-brand-400">
         {project.name}
       </h3>
-      <p className="mt-1 line-clamp-2 min-h-[2.5em] text-sm text-slate-500">
+      <p className="mt-1 line-clamp-2 min-h-[2.5em] text-sm text-slate-500 dark:text-slate-400">
         {project.description || 'No description provided.'}
       </p>
 
-      <div className="mt-4 flex items-center justify-between text-xs text-slate-400">
+      <div className="mt-4 flex items-center justify-between text-xs text-slate-400 dark:text-slate-500">
         <span>{project.memberCount ?? 1} member{(project.memberCount ?? 1) !== 1 ? 's' : ''}</span>
         <span>Updated {new Date(project.updatedAt).toLocaleDateString()}</span>
       </div>

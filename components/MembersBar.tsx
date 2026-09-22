@@ -10,11 +10,13 @@ export default function MembersBar({
   project,
   members,
   isOwner,
+  onlineUserIds = [],
   onInviteTokenChanged,
 }: {
   project: Project;
   members: ProjectMember[];
   isOwner: boolean;
+  onlineUserIds?: string[];
   onInviteTokenChanged: (token: string) => void;
 }) {
   const [open, setOpen] = useState(false);
@@ -23,6 +25,8 @@ export default function MembersBar({
 
   const inviteLink =
     typeof window !== 'undefined' ? `${window.location.origin}/invite/${project.inviteToken}` : '';
+
+  const isOnline = (m: ProjectMember) => onlineUserIds.includes(m.user._id || m.user.id || '');
 
   const copyLink = async () => {
     try {
@@ -55,13 +59,13 @@ export default function MembersBar({
     <div className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center -space-x-2 rounded-full py-1 pl-1 pr-2 hover:bg-slate-100"
+        className="flex items-center -space-x-2 rounded-full py-1 pl-1 pr-2 hover:bg-slate-100 dark:hover:bg-slate-800"
       >
         {visible.map((m) => (
-          <Avatar key={m._id} user={m.user} size="sm" />
+          <Avatar key={m._id} user={m.user} size="sm" online={isOnline(m)} />
         ))}
         {extra > 0 && (
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-200 text-[10px] font-semibold text-slate-600 ring-2 ring-white">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-200 text-[10px] font-semibold text-slate-600 ring-2 ring-white dark:bg-slate-700 dark:text-slate-300 dark:ring-slate-900">
             +{extra}
           </div>
         )}
@@ -70,18 +74,20 @@ export default function MembersBar({
       {open && (
         <>
           <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
-          <div className="absolute right-0 z-20 mt-2 w-80 max-w-[90vw] animate-slide-up rounded-xl border border-slate-200 bg-white p-4 shadow-lg">
-            <h4 className="text-sm font-semibold text-slate-900">Members ({members.length})</h4>
+          <div className="absolute right-0 z-20 mt-2 w-80 max-w-[90vw] animate-slide-up rounded-xl border border-slate-200 bg-white p-4 shadow-lg dark:border-slate-700 dark:bg-slate-900">
+            <h4 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+              Members ({members.length})
+            </h4>
             <div className="mt-3 max-h-48 space-y-2 overflow-y-auto">
               {members.map((m) => (
                 <div key={m._id} className="flex items-center gap-2">
-                  <Avatar user={m.user} size="sm" />
+                  <Avatar user={m.user} size="sm" online={isOnline(m)} />
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm text-slate-800">{m.user.name}</p>
-                    <p className="truncate text-xs text-slate-400">{m.user.email}</p>
+                    <p className="truncate text-sm text-slate-800 dark:text-slate-200">{m.user.name}</p>
+                    <p className="truncate text-xs text-slate-400 dark:text-slate-500">{m.user.email}</p>
                   </div>
                   {m.role === 'owner' && (
-                    <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-medium text-amber-700">
+                    <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-medium text-amber-700 dark:bg-amber-500/15 dark:text-amber-400">
                       Owner
                     </span>
                   )}
@@ -89,8 +95,8 @@ export default function MembersBar({
               ))}
             </div>
 
-            <div className="mt-4 border-t border-slate-100 pt-3">
-              <p className="text-xs font-medium text-slate-500">Invite link</p>
+            <div className="mt-4 border-t border-slate-100 pt-3 dark:border-slate-800">
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">Invite link</p>
               <div className="mt-1.5 flex items-center gap-2">
                 <input
                   readOnly
@@ -102,14 +108,14 @@ export default function MembersBar({
                   {copied ? 'Copied' : 'Copy'}
                 </button>
               </div>
-              <p className="mt-1.5 text-[11px] text-slate-400">
+              <p className="mt-1.5 text-[11px] text-slate-400 dark:text-slate-500">
                 Anyone with this link can join the project after signing up or logging in.
               </p>
               {isOwner && (
                 <button
                   onClick={regenerate}
                   disabled={regenerating}
-                  className="mt-2 text-xs font-medium text-brand-600 hover:text-brand-700 disabled:opacity-50"
+                  className="mt-2 text-xs font-medium text-brand-600 hover:text-brand-700 disabled:opacity-50 dark:text-brand-400 dark:hover:text-brand-300"
                 >
                   {regenerating ? 'Generating…' : 'Generate new link'}
                 </button>

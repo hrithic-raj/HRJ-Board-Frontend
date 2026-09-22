@@ -33,9 +33,9 @@ export default function CreateProjectModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 animate-fade-in">
-      <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl animate-slide-up">
-        <h2 className="text-lg font-semibold text-slate-900">New project</h2>
-        <p className="mt-1 text-sm text-slate-500">
+      <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl animate-slide-up dark:bg-slate-900">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">New project</h2>
+        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
           We'll set up a starter board with To Do, In Progress and Done columns.
         </p>
 
@@ -57,7 +57,7 @@ export default function CreateProjectModal({
           </div>
           <div>
             <label className="label" htmlFor="pdesc">
-              Description <span className="font-normal text-slate-400">(optional)</span>
+              Description <span className="font-normal text-slate-400 dark:text-slate-500">(optional)</span>
             </label>
             <textarea
               id="pdesc"

@@ -40,7 +40,7 @@ export default function ProjectsPage() {
 
   if (authLoading || !user) {
     return (
-      <div className="flex h-screen items-center justify-center">
+      <div className="flex h-screen items-center justify-center bg-white dark:bg-slate-950">
         <Loader />
       </div>
     );
@@ -49,14 +49,16 @@ export default function ProjectsPage() {
   const filtered = projects.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       <Navbar />
 
       <main className="mx-auto max-w-[1600px] px-4 py-6 sm:px-6 sm:py-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-xl font-semibold text-slate-900 sm:text-2xl">Your projects</h1>
-            <p className="mt-1 text-sm text-slate-500">
+            <h1 className="text-xl font-semibold text-slate-900 dark:text-slate-100 sm:text-2xl">
+              Your projects
+            </h1>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
               {projects.length} project{projects.length !== 1 ? 's' : ''} · Welcome back, {user.name.split(' ')[0]}
             </p>
           </div>
@@ -81,13 +83,13 @@ export default function ProjectsPage() {
             </div>
           ) : filtered.length === 0 ? (
             <div className="card flex flex-col items-center justify-center gap-3 py-20 text-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-2xl">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-2xl dark:bg-brand-500/10">
                 📋
               </div>
-              <h3 className="text-base font-semibold text-slate-900">
+              <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100">
                 {projects.length === 0 ? 'No projects yet' : 'No matching projects'}
               </h3>
-              <p className="max-w-sm text-sm text-slate-500">
+              <p className="max-w-sm text-sm text-slate-500 dark:text-slate-400">
                 {projects.length === 0
                   ? 'Create your first project to get a kanban board you and your team can collaborate on in real time.'
                   : 'Try a different search term.'}

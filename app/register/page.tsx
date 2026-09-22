@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import toast from 'react-hot-toast';
 import { useAuth } from '@/context/AuthContext';
+import ThemeToggle from '@/components/ThemeToggle';
 
 function RegisterForm() {
   const { register, user } = useAuth();
@@ -36,15 +37,21 @@ function RegisterForm() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4">
+    <div className="relative flex min-h-screen items-center justify-center bg-slate-50 px-4 dark:bg-slate-950">
+      <div className="absolute right-4 top-4">
+        <ThemeToggle />
+      </div>
+
       <div className="w-full max-w-sm animate-slide-up">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-600 text-lg font-bold text-white">
-            B
+          <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-600 text-lg font-bold text-white dark:bg-brand-500">
+            H
           </div>
-          <h1 className="text-xl font-semibold text-slate-900">Create your account</h1>
-          <p className="mt-1 text-sm text-slate-500">
-            {redirect?.startsWith('/invite') ? 'Sign up to accept your invitation' : 'Start organizing your team\'s work'}
+          <h1 className="text-xl font-semibold text-slate-900 dark:text-slate-100">Create your account</h1>
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+            {redirect?.startsWith('/invite')
+              ? 'Sign up to accept your invitation'
+              : "Join HRJ Board and organize your team's work"}
           </p>
         </div>
 
@@ -98,11 +105,11 @@ function RegisterForm() {
           </button>
         </form>
 
-        <p className="mt-5 text-center text-sm text-slate-600">
+        <p className="mt-5 text-center text-sm text-slate-600 dark:text-slate-400">
           Already have an account?{' '}
           <Link
             href={redirect ? `/login?redirect=${encodeURIComponent(redirect)}` : '/login'}
-            className="font-medium text-brand-600 hover:text-brand-700"
+            className="font-medium text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300"
           >
             Log in
           </Link>
