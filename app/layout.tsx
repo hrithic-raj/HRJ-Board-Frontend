@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon',
     shortcut: '/icon',
-    apple: '/icon',
+    // apple-touch-icon is supplied automatically by app/apple-icon.tsx
   },
   manifest: '/manifest.webmanifest',
   openGraph: {

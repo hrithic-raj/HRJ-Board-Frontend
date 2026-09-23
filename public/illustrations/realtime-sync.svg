@@ -1,0 +1,30 @@
+<svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="syncTitle">
+  <title id="syncTitle">Illustration of HRJ Board syncing task updates live between two teammates</title>
+  <rect width="520" height="400" rx="20" fill="#F5F3FF" />
+
+  <!-- Left device -->
+  <rect x="40" y="90" width="180" height="220" rx="16" fill="#ffffff" stroke="#E2E8F0" />
+  <rect x="60" y="112" width="140" height="14" rx="7" fill="#C7D2FE" />
+  <rect x="60" y="140" width="140" height="40" rx="10" fill="#EEF2FF" />
+  <rect x="60" y="188" width="140" height="40" rx="10" fill="#EEF2FF" />
+  <rect x="60" y="236" width="140" height="40" rx="10" fill="#EEF2FF" />
+  <circle cx="70" cy="292" r="10" fill="#818CF8" />
+  <rect x="88" y="286" width="60" height="10" rx="5" fill="#C7D2FE" />
+
+  <!-- Right device -->
+  <rect x="300" y="90" width="180" height="220" rx="16" fill="#ffffff" stroke="#E2E8F0" />
+  <rect x="320" y="112" width="140" height="14" rx="7" fill="#FBCFE8" />
+  <rect x="320" y="140" width="140" height="40" rx="10" fill="#FDF2F8" />
+  <rect x="320" y="188" width="140" height="40" rx="10" fill="#FDF2F8" />
+  <rect x="320" y="236" width="140" height="40" rx="10" fill="#FDF2F8" />
+  <circle cx="330" cy="292" r="10" fill="#F472B6" />
+  <rect x="348" y="286" width="60" height="10" rx="5" fill="#FBCFE8" />
+
+  <!-- Sync bolt -->
+  <circle cx="260" cy="200" r="34" fill="#4F46E5" />
+  <path d="M264 178 L244 206 L258 206 L254 224 L276 194 L262 194 Z" fill="#FDE68A" />
+
+  <!-- connecting arcs -->
+  <path d="M220 160 Q260 120 300 160" stroke="#A5B4FC" stroke-width="3" fill="none" stroke-dasharray="6 6" />
+  <path d="M220 240 Q260 280 300 240" stroke="#A5B4FC" stroke-width="3" fill="none" stroke-dasharray="6 6" />
+</svg>

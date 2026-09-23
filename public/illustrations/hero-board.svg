@@ -1,0 +1,61 @@
+<svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heroTitle">
+  <title id="heroTitle">HRJ Board kanban board with To Do, In Progress and Done columns</title>
+  <rect width="560" height="420" rx="20" fill="#EEF2FF" />
+
+  <circle cx="34" cy="34" r="6" fill="#FCA5A5" />
+  <circle cx="54" cy="34" r="6" fill="#FCD34D" />
+  <circle cx="74" cy="34" r="6" fill="#86EFAC" />
+
+  <!-- Column 1: To Do -->
+  <rect x="30" y="60" width="150" height="330" rx="14" fill="#ffffff" />
+  <rect x="46" y="80" width="10" height="10" rx="3" fill="#F97316" />
+  <rect x="64" y="78" width="60" height="12" rx="6" fill="#CBD5E1" />
+  <g>
+    <rect x="46" y="104" width="118" height="54" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+    <rect x="58" y="116" width="80" height="8" rx="4" fill="#94A3B8" />
+    <rect x="58" y="130" width="50" height="8" rx="4" fill="#CBD5E1" />
+    <rect x="58" y="144" width="30" height="10" rx="5" fill="#FEE2E2" />
+  </g>
+  <g>
+    <rect x="46" y="170" width="118" height="54" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+    <rect x="58" y="182" width="70" height="8" rx="4" fill="#94A3B8" />
+    <rect x="58" y="196" width="45" height="8" rx="4" fill="#CBD5E1" />
+    <rect x="58" y="210" width="30" height="10" rx="5" fill="#FEF3C7" />
+  </g>
+
+  <!-- Column 2: In Progress -->
+  <rect x="200" y="60" width="150" height="330" rx="14" fill="#ffffff" />
+  <rect x="216" y="80" width="10" height="10" rx="3" fill="#3B82F6" />
+  <rect x="234" y="78" width="80" height="12" rx="6" fill="#CBD5E1" />
+  <g transform="rotate(-4 277 134)">
+    <rect x="216" y="104" width="118" height="60" rx="10" fill="#EEF2FF" stroke="#818CF8" stroke-width="1.5" />
+    <rect x="228" y="118" width="90" height="8" rx="4" fill="#6366F1" />
+    <rect x="228" y="132" width="60" height="8" rx="4" fill="#A5B4FC" />
+    <circle cx="316" cy="150" r="10" fill="#6366F1" />
+  </g>
+  <g>
+    <rect x="216" y="176" width="118" height="54" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+    <rect x="228" y="188" width="75" height="8" rx="4" fill="#94A3B8" />
+    <rect x="228" y="202" width="40" height="8" rx="4" fill="#CBD5E1" />
+    <rect x="228" y="216" width="30" height="10" rx="5" fill="#DCFCE7" />
+  </g>
+
+  <!-- Column 3: Done -->
+  <rect x="370" y="60" width="150" height="330" rx="14" fill="#ffffff" />
+  <rect x="386" y="80" width="10" height="10" rx="3" fill="#22C55E" />
+  <rect x="404" y="78" width="60" height="12" rx="6" fill="#CBD5E1" />
+  <g>
+    <rect x="386" y="104" width="118" height="54" rx="10" fill="#F0FDF4" stroke="#BBF7D0" />
+    <rect x="398" y="116" width="70" height="8" rx="4" fill="#16A34A" />
+    <rect x="398" y="130" width="45" height="8" rx="4" fill="#86EFAC" />
+    <circle cx="404" cy="146" r="6" fill="#22C55E" />
+  </g>
+  <g>
+    <rect x="386" y="170" width="118" height="54" rx="10" fill="#F0FDF4" stroke="#BBF7D0" />
+    <rect x="398" y="182" width="80" height="8" rx="4" fill="#16A34A" />
+    <rect x="398" y="196" width="55" height="8" rx="4" fill="#86EFAC" />
+  </g>
+
+  <!-- Drag cursor -->
+  <path d="M300 260 L300 300 L310 292 L316 306 L322 303 L316 289 L328 288 Z" fill="#0F172A" />
+</svg>

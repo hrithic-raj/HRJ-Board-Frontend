@@ -10,7 +10,9 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         // Authenticated, per-user app pages add no SEO value and should stay
         // out of the crawl - only the marketing/auth entry points matter.
-        disallow: ['/projects/', '/invite/'],
+        // (No trailing slash: this also covers the bare "/projects" dashboard,
+        // not just nested "/projects/<id>" board pages.)
+        disallow: ['/projects', '/invite'],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
